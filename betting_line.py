@@ -11,10 +11,11 @@ import matplotlib.pyplot as plt
 dataSet = pd.read_csv('lineVSactual.csv')
 
 dataSet.columns
-betLine = dataSet["line"]
-result = dataSet["actual"]
+betLine = dataSet["line"] #b0
+result = dataSet["actual"] #b1
 
-error = result - betLine
+error = betLine+result*betLine
+
 
 plt.hist(dataSet["line"], alpha = 0.5, label = "line", density = True)
 plt.hist(dataSet["actual"], alpha = 0.5, label = "actual", density = True)
